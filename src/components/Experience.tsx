@@ -31,7 +31,7 @@ const projects = [
       'Scalable real-time chat with typing indicators, delivery/read status, online presence tracking',
       'AI features: conversation summarization, spam detection, message prediction via LLM APIs; -50% information overload',
     ],
-    links: { live: '#', github: '#' },
+    links: { live: 'https://sandesha-chat.vercel.app', github: 'https://github.com/sri-manikanta/sandesha' },
     tags: ['MERN', 'Socket.io', 'LLM', 'Redis'],
   },
   {
@@ -48,7 +48,7 @@ const projects = [
       'Multi-agent AI chatbot for disease awareness, symptom guidance, preventive healthcare support',
       'Location-based hospital recommendations; structured agent workflow for query understanding + RAG',
     ],
-    links: { github: '#' },
+    links: { github: 'https://github.com/sri-manikanta/healthify' },
     tags: ['Node.js', 'RAG', 'Vector DB', 'LLM'],
   },
   {
@@ -65,7 +65,7 @@ const projects = [
       'AI code review detecting bugs, suggesting optimizations, estimating time complexity across languages',
       'GitHub workflow integration with PR comment simulation; <2s latency, >95% issue detection accuracy',
     ],
-    links: { github: '#' },
+    links: { github: 'https://github.com/sri-manikanta/codeinsight-ai' },
     tags: ['LLM', 'RAG', 'Node.js', 'GitHub'],
   },
   {
@@ -82,7 +82,7 @@ const projects = [
       'Production-grade bakery system: catalog, WhatsApp ordering, end-to-end management for real client',
       'K6 load testing + load balancing; scaled 100→1000+ users, -35% API latency, >99% success rate',
     ],
-    links: { live: '#', github: '#' },
+    links: { live: 'https://bakery-mgmt.vercel.app', github: 'https://github.com/sri-manikanta/bakery-management' },
     tags: ['MERN', 'WhatsApp', 'K6', 'REST'],
   },
   {
@@ -99,7 +99,7 @@ const projects = [
       'Drag-and-drop image compression; <1s processing, 65-80% size reduction preserving visual quality',
       'Scalable backend APIs for 500+ concurrent uploads; +40% upload efficiency',
     ],
-    links: { live: '#', github: '#' },
+    links: { live: 'https://compily.vercel.app', github: 'https://github.com/sri-manikanta/compily' },
     tags: ['MERN', 'Sharp', 'Node.js', 'REST'],
   },
 ];
@@ -308,7 +308,7 @@ export default function Experience() {
                 </div>
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-1 mt-auto">
+                <div className="flex flex-wrap gap-1 mb-4">
                   {p.tags.map((t) => (
                     <span
                       key={t}
@@ -318,6 +318,64 @@ export default function Experience() {
                       {t}
                     </span>
                   ))}
+                </div>
+
+                {/* Action buttons */}
+                <div className="flex gap-2 mt-auto">
+                  {p.links.live && (
+                    <a
+                      href={p.links.live}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex-1 flex items-center justify-center gap-1 px-3 py-2 mono text-xs font-semibold transition-all duration-300"
+                      style={{
+                        border: `1px solid ${p.color}60`,
+                        color: p.color,
+                        background: `${p.color}0d`,
+                        fontSize: '10px',
+                        letterSpacing: '1px',
+                        textTransform: 'uppercase',
+                        cursor: 'pointer',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = `${p.color}20`;
+                        e.currentTarget.style.boxShadow = `0 0 12px ${p.color}40`;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = `${p.color}0d`;
+                        e.currentTarget.style.boxShadow = 'none';
+                      }}
+                    >
+                      <ExternalLink size={11} />
+                      <span>LIVE</span>
+                    </a>
+                  )}
+                  <a
+                    href={p.links.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex-1 flex items-center justify-center gap-1 px-3 py-2 mono text-xs font-semibold transition-all duration-300"
+                    style={{
+                      border: `1px solid ${p.color}60`,
+                      color: p.color,
+                      background: `${p.color}0d`,
+                      fontSize: '10px',
+                      letterSpacing: '1px',
+                      textTransform: 'uppercase',
+                      cursor: 'pointer',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = `${p.color}20`;
+                      e.currentTarget.style.boxShadow = `0 0 12px ${p.color}40`;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = `${p.color}0d`;
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
+                  >
+                    <ExternalLink size={11} />
+                    <span>GITHUB</span>
+                  </a>
                 </div>
               </div>
             ))}
